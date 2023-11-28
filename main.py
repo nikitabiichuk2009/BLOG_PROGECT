@@ -125,6 +125,7 @@ with app.app_context():
     db.create_all()
 
 
+@staticmethod
 def starts_with_capital_for_title(form, field):
     words = field.data.split()
     for word in words:
@@ -133,6 +134,7 @@ def starts_with_capital_for_title(form, field):
             raise ValidationError('Each word should start with a capital letter or a number!')
 
 
+@staticmethod
 def starts_with_capital_for_author(form, field):
     words = field.data.split()
     for word in words:
@@ -141,6 +143,7 @@ def starts_with_capital_for_author(form, field):
             raise ValidationError("Each word should start with a capital letter, can't contain numbers!")
 
 
+@staticmethod
 def validate_url(form, field):
     url = field.data
     if not 'https://images.unsplash.com/photo-' in url:
