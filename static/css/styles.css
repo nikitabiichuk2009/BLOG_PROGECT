@@ -10663,8 +10663,12 @@ blockquote {
     transform: translate3d(0, 100%, 0);
   }
 }
-.avatar img{
-  height: 300px;
+@media only screen and (max-width: 600px) {
+  /* Styles for .avatar img on phones */
+  .avatar img {
+    height: 280px;
+    /* Additional styles for phone users */
+  }
 }
 footer {
   padding-top: 3rem;
