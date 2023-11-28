@@ -9,5 +9,5 @@ WTForms
 SQLAlchemy
 gunicorn
 psycopg2-binary
-LATEST version for every package
+#LATEST version for every package
 	
