@@ -9,7 +9,7 @@ def starts_with_capital_for_author(form, field):
     words = field.data.split()
     for word in words:
         first_char = word[0]
-        if not (first_char.isupper()):
+        if not (first_char.isupper() and not any(char.isdigit() for char in word)):
             raise ValidationError("Each word should start with a capital letter, can't contain numbers!")
 
 

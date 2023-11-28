@@ -109,10 +109,6 @@ with app.app_context():
     db.create_all()
 
 
-
-
-
-
 class CreateBlogForm(FlaskForm):
     def starts_with_capital_for_title(form, field):
         words = field.data.split()
@@ -125,7 +121,7 @@ class CreateBlogForm(FlaskForm):
         words = field.data.split()
         for word in words:
             first_char = word[0]
-            if not (first_char.isupper()):
+            if not (first_char.isupper() and not any(char.isdigit() for char in word)):
                 raise ValidationError("Each word should start with a capital letter, can't contain numbers!")
 
     def validate_url(form, field):
@@ -151,6 +147,7 @@ class CreateBlogForm(FlaskForm):
         # Check for spam-like content
         if word_count > max_word_count or unique_ratio < min_unique_ratio:
             raise ValidationError('Please provide meaningful content')
+
     title = StringField('Blog Post Title', validators=[DataRequired(), Length(min=10, max=40), check_for_spam,
                                                        starts_with_capital_for_title])
     subtitle = StringField('Subtitle', validators=[DataRequired(), Length(min=10, max=50), check_for_spam,
