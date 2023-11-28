@@ -10663,7 +10663,9 @@ blockquote {
     transform: translate3d(0, 100%, 0);
   }
 }
-
+.avatar img{
+  height: 300px;
+}
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
