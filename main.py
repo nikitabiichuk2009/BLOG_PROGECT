@@ -125,53 +125,48 @@ with app.app_context():
     db.create_all()
 
 
-@staticmethod
-def starts_with_capital_for_title(form, field):
-    words = field.data.split()
-    for word in words:
-        first_char = word[0]
-        if not (first_char.isupper() or first_char.isdigit()):
-            raise ValidationError('Each word should start with a capital letter or a number!')
 
 
-@staticmethod
-def starts_with_capital_for_author(form, field):
-    words = field.data.split()
-    for word in words:
-        first_char = word[0]
-        if not (first_char.isupper()):
-            raise ValidationError("Each word should start with a capital letter, can't contain numbers!")
-
-
-@staticmethod
-def validate_url(form, field):
-    url = field.data
-    if not 'https://images.unsplash.com/photo-' in url:
-        raise ValidationError('Please provide a URL from Unsplash.')
-
-
-@staticmethod
-def check_for_spam(form, field):
-    data = field.data
-
-    # Calculate word count and unique character ratio
-    words = data.split()
-    word_count = len(words)
-
-    unique_chars = len(set(data.replace(" ", "")))
-    total_chars = len(data.replace(" ", ""))
-    unique_ratio = unique_chars / max(1, total_chars)
-
-    # Adjust these ratios based on your spam detection needs
-    max_word_count = 10
-    min_unique_ratio = 0.3
-
-    # Check for spam-like content
-    if word_count > max_word_count or unique_ratio < min_unique_ratio:
-        raise ValidationError('Please provide meaningful content')
 
 
 class CreateBlogForm(FlaskForm):
+    def starts_with_capital_for_title(form, field):
+        words = field.data.split()
+        for word in words:
+            first_char = word[0]
+            if not (first_char.isupper() or first_char.isdigit()):
+                raise ValidationError('Each word should start with a capital letter or a number!')
+
+    def starts_with_capital_for_author(form, field):
+        words = field.data.split()
+        for word in words:
+            first_char = word[0]
+            if not (first_char.isupper()):
+                raise ValidationError("Each word should start with a capital letter, can't contain numbers!")
+
+    def validate_url(form, field):
+        url = field.data
+        if not 'https://images.unsplash.com/photo-' in url:
+            raise ValidationError('Please provide a URL from Unsplash.')
+
+    def check_for_spam(form, field):
+        data = field.data
+
+        # Calculate word count and unique character ratio
+        words = data.split()
+        word_count = len(words)
+
+        unique_chars = len(set(data.replace(" ", "")))
+        total_chars = len(data.replace(" ", ""))
+        unique_ratio = unique_chars / max(1, total_chars)
+
+        # Adjust these ratios based on your spam detection needs
+        max_word_count = 10
+        min_unique_ratio = 0.3
+
+        # Check for spam-like content
+        if word_count > max_word_count or unique_ratio < min_unique_ratio:
+            raise ValidationError('Please provide meaningful content')
     title = StringField('Blog Post Title', validators=[DataRequired(), Length(min=10, max=40), check_for_spam,
                                                        starts_with_capital_for_title])
     subtitle = StringField('Subtitle', validators=[DataRequired(), Length(min=10, max=50), check_for_spam,
