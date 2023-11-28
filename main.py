@@ -61,14 +61,6 @@ def admin_only(f):
     return decorated_fun
 
 
-def starts_with_single_capital(form, field):
-    words = field.data.split()
-    first_word = words[0] if words else None
-
-    if first_word and not (first_word[0].isupper() or first_word[0].isdigit()):
-        raise ValidationError('The content should start with a capital letter or a number!')
-
-
 class User(UserMixin, db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
@@ -110,6 +102,13 @@ with app.app_context():
 
 
 class CreateBlogForm(FlaskForm):
+    def starts_with_single_capital(form, field):
+        words = field.data.split()
+        first_word = words[0] if words else None
+
+        if first_word and not (first_word[0].isupper() or first_word[0].isdigit()):
+            raise ValidationError('The content should start with a capital letter or a number!')
+
     def starts_with_capital_for_title(form, field):
         words = field.data.split()
         for word in words:
