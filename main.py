@@ -8,7 +8,6 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, cur
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_ckeditor import CKEditor, CKEditorField
 from flask_bootstrap import Bootstrap5
-from flask import Flask
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from sqlalchemy.orm import relationship
@@ -19,7 +18,6 @@ import time
 from sqlalchemy.exc import IntegrityError
 from forms import RegisterForm, LogInForm, Delete, Reset, DeletePost, Send, Code, CommentForm
 import string
-import time
 import hashlib
 import os
 
@@ -32,20 +30,6 @@ login_manager.init_app(app)
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
-
-
-# Keep track of whether the session has been cleared
-session_cleared = False
-
-
-# ... existing code ...
-
-@app.before_request
-def clear_session():
-    global session_cleared
-    if not session_cleared and request.cookies.get('session'):
-        logout_user()
-        session_cleared = True  # Log out the user by clearing the session cookie
 
 
 # posts_by_json = requests.get(
