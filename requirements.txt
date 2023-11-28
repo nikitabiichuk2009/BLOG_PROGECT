@@ -11,3 +11,4 @@ gunicorn
 psycopg2-binary
 requests
 email_validator
+bs4

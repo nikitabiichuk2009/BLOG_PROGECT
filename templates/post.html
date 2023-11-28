@@ -36,7 +36,7 @@
                         {% endif %}
 
                         {{ render_form(form) }}
-                    
+
                         {{ ckeditor.load(pkg_type="basic") }}
                         {{ ckeditor.config(name='body') }}
                         <div class="comment">
@@ -45,21 +45,21 @@
                               {% for comment in post.comments: %}
                               <li>
                                 <div class="commenterImage">
-                                  
+
                                   <img src="{{ comment.comment_author.avatar  }}" /></div>
                                 <div class="commentText">
-                                  
+
                                   {{comment.text|safe}}
                                   {% if current_user.is_authenticated and comment.comment_author.email == current_user.email: %}
                                   <a href="{{  url_for('delete_comment', id=comment.id, post_id=id )  }}" style="color: red;  font-size: larger;" class="sub-text">✘</a>
                                   {% endif %}
                                   <span class="sub-text">{{comment.comment_author.name}}</span>
-                                  
+
                                 </div>
                               </li>
                               {% endfor %}
                             </ul>
-                  
+
                           </div>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import smtplib
+from bs4 import BeautifulSoup
 from functools import wraps
 from flask import Flask, render_template, request, url_for, redirect, flash, send_from_directory, session, abort
 from flask_sqlalchemy import SQLAlchemy
@@ -359,6 +360,10 @@ def read_post(index):
     blog_author = post.author.name
     blog_date = post.date
     blog_subtitle = post.subtitle
+    soup = BeautifulSoup(blog_body, 'html.parser')
+    for img_tag in soup.find_all('img'):
+        img_tag['class'] = ['img-fluid']
+    modified_blog_body = str(soup)
     if form.validate_on_submit():
         if not current_user.is_authenticated:
             flash("You need to login or register to comment.")
@@ -373,7 +378,7 @@ def read_post(index):
         db.session.commit()
         return redirect(url_for('read_post', index=index))
 
-    return render_template("post.html", title=blog_title, body=blog_body, subtitle=blog_subtitle, url=blog_image,
+    return render_template("post.html", title=blog_title, body=modified_blog_body, subtitle=blog_subtitle, url=blog_image,
                            author=blog_author, date=blog_date, id=blog_id, form=form, post=requested_post, email=email)
 
 
@@ -459,6 +464,7 @@ def edit(post_id):
     title = post.title
     subtitle = post.subtitle
     body = post.body
+    print(body)
     url = post.img_url
     date = post.date
     author = post.author
@@ -495,4 +501,4 @@ def are_you_sure(id, name):
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
