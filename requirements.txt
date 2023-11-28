@@ -1,0 +1,13 @@
+Bootstrap_Flask
+Flask
+Flask_CKEditor
+Flask_Login
+flask_sqlalchemy
+Flask_WTF
+Werkzeug
+WTForms
+SQLAlchemy
+gunicorn
+psycopg2-binary
+LATEST version for every package
+	

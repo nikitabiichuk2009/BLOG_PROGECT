@@ -1,0 +1,57 @@
+{% from "bootstrap5/form.html" import render_form %} {% block content %} {%
+    include "header.html" %}
+    
+    <!-- Page Header -->
+    <header
+      class="masthead"
+      style="background-image: url('https://images.unsplash.com/photo-1682687220336-bbd659a734e7?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+    >
+    
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="page-heading">
+              <h1>Log In</h1>
+              <span class="subheading">Welcome Back!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <main class="mb-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+          <p style="font-size: 25px; color: red;">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="container">             
+            {{ render_form(form) }}
+            <hr>
+            <a class="link" href="{{  url_for('forgot_password')  }}">Forgot Your Password?</a>
+
+          </div>
+        </div>
+      </div>
+    </main>
+    <style>
+      .form-control-label{
+        margin-bottom: 10px;
+        font-size: larger;
+      }
+      .link{
+        color: green
+    }
+    #submit{
+      font-size: 20px;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+
+    </style>
+    {% include "footer.html" %} {% endblock %}

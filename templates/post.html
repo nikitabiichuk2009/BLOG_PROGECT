@@ -1,0 +1,84 @@
+{% include 'header.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{url}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>{{title}}</h1>
+                            <h2 style="font-size: 35px;" class="subheading">{{subtitle}}</h2>
+                            <span style="font-size: 22px;" class="meta">
+                                Posted by
+                                <b style="color: #7ED7C1; font-weight: bold;">{{  author  }}</b>
+                                on {{date}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p> {{ body|safe }}
+                        </p>
+                        <hr>
+                        {% if current_user.email == email: %}
+                        <div class="d-flex justify-content-center mb-4">
+                            <a style="font-size: 20px;" class="btn btn-primary text-uppercase"
+                            href="{{  url_for('edit', post_id=id  )}}"
+                            >Edit Post</a>
+                        </div>
+                        {% endif %}
+
+                        {{ render_form(form) }}
+                    
+                        {{ ckeditor.load(pkg_type="basic") }}
+                        {{ ckeditor.config(name='body') }}
+                        <div class="comment">
+                            <ul class="commentList">
+                              <!-- Show all comments -->
+                              {% for comment in post.comments: %}
+                              <li>
+                                <div class="commenterImage">
+                                  
+                                  <img src="{{ comment.comment_author.avatar  }}" /></div>
+                                <div class="commentText">
+                                  
+                                  {{comment.text|safe}}
+                                  {% if current_user.is_authenticated and comment.comment_author.email == current_user.email: %}
+                                  <a href="{{  url_for('delete_comment', id=comment.id, post_id=id )  }}" style="color: red;  font-size: larger;" class="sub-text">✘</a>
+                                  {% endif %}
+                                  <span class="sub-text">{{comment.comment_author.name}}</span>
+                                  
+                                </div>
+                              </li>
+                              {% endfor %}
+                            </ul>
+                  
+                          </div>
+                    </div>
+                </div>
+            </div>
+            
+        </article>
+        <style>
+            .form-control-label{
+              margin-bottom: 10px;
+              font-size: larger;
+            }
+            #submit{
+              font-size: 20px;
+              margin-top: 10px;
+              text-transform: uppercase;
+            }
+            
+          </style>
+        
+
+        <!-- Footer-->
+{% include 'footer.html' %}

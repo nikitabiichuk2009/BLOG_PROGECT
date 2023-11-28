@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<!--
+	Identity by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<html>
+<script src="/js/scripts.js"></script>
+
+<head>
+    <title>Nikita Biichuk</title>
+    <meta charset="utf-8"/>
+    <meta name="author" content="" />
+        <title>My Blog</title>
+        <link rel="icon" type="image/x-icon" href="static/static/assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/static/css/styles.css" rel="stylesheet" />
+<!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='/js/scripts.js') }}"></script>
+        <script src="{{ url_for('static', filename='/js/scripts.js') }}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lte IE 8]>
+    <script src="static/assets/js/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="static/assets/css/main.css"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="static/assets/css/ie9.css"/><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="static/assets/css/ie8.css"/><![endif]-->
+    <noscript>
+        <link rel="stylesheet" href="static/assets/css/noscript.css"/>
+    </noscript>
+    <script src="js/scripts.js"></script>
+
+</head>
+<body class="is-loading">
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" style="letter-spacing: 0.2em;text-transform: uppercase;  font-size: larger;" href="{{  url_for('home')  }}">Go Back</a>
+            
+        </div>
+    </nav>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Main -->
+    <section id="main">
+        <header>
+            <span class="avatar"><img src="static/assets/img/avatar.jpg" alt=""/></span>
+            <h1>Nikita Biichuk</h1>
+            <p>Future Senior Full Stack Developer</p>
+        </header>
+        <!--
+        <hr />
+        <h2>Extra Stuff!</h2>
+        <form method="post" action="#">
+            <div class="field">
+                <input type="text" name="name" id="name" placeholder="Name" />
+            </div>
+            <div class="field">
+                <input type="email" name="email" id="email" placeholder="Email" />
+            </div>
+            <div class="field">
+                <div class="select-wrapper">
+                    <select name="department" id="department">
+                        <option value="">Department</option>
+                        <option value="sales">Sales</option>
+                        <option value="tech">Tech Support</option>
+                        <option value="null">/dev/null</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
+            </div>
+            <div class="field">
+                <input type="checkbox" id="human" name="human" /><label for="human">I'm a human</label>
+            </div>
+            <div class="field">
+                <label>But are you a robot?</label>
+                <input type="radio" id="robot_yes" name="robot" /><label for="robot_yes">Yes</label>
+                <input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label>
+            </div>
+            <ul class="actions">
+                <li><a href="#" class="button">Get Started</a></li>
+            </ul>
+        </form>
+        <hr />
+        -->
+        <footer>
+            <ul class="icons">
+                <li><a href="https://twitter.com/niktestpython" class="fa-twitter">Twitter</a></li>
+                <li><a href="https://www.instagram.com/nikitab2009n/?next=%2F" class="fa-instagram">Instagram</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61552579117635" class="fa-facebook">Facebook</a>
+                </li>
+            </ul>
+        </footer>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li style="font-size: 24px;">&copy; Nikita Biichuk</li>
+            <li style="font-size: 24px;">About Me</li>
+        </ul>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<!--[if lte IE 8]>
+<script src="static/assets/js/respond.min.js"></script><![endif]-->
+<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+
+</script>
+
+
+</body>
+</html>

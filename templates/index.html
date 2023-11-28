@@ -1,0 +1,51 @@
+{% include 'header.html' %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{url}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Nikita's Blog</h1>
+                            <span class="subheading">A collection of Nikita's random musings. </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    {% for value in all_posts: %}
+                    <div class="post-preview">
+                        <a href="{{url_for('read_post', index=value['id'])}}">
+                            <h2 class="post-title">{{value["title"]}}</h2>
+                            <h3 class="post-subtitle">{{value["subtitle"]}}</h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <b style="color: #7ED7C1; font-weight: bold;">{{value["author"].name}}</b>
+                            on {{value["date"]}} 
+                            {% if current_user.email == email: %}
+                            <a class="delete" style="font-size: 28px; color:red;" href="{{  url_for('are_you_sure', id=value['id'], name=value['title'])  }}">✘</a>
+                            {% endif %}
+                        </p>
+                    </div>
+                    <!-- Divider-->
+                    {% if current_user.email == email or not loop.last %}
+                    <hr class="my-4" />
+                    {% endif %}
+                    
+                    {% endfor %}
+                    <!-- Post preview-->
+                    
+                    <!-- Pager-->
+                    {% if current_user.email == email: %}
+                        <div class="d-flex justify-content-end mb-4"><a style="font-size: 20px;" class="btn btn-primary text-uppercase" href="{{  url_for('new_post')  }}">Create a new post</a></div>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+        
+        {% include 'footer.html' %}
