@@ -362,7 +362,8 @@ def read_post(index):
     blog_subtitle = post.subtitle
     soup = BeautifulSoup(blog_body, 'html.parser')
     for img_tag in soup.find_all('img'):
-        img_tag['class'] = ['img-fluid']
+        del img_tag['style']  # Remove style attribute with height and width
+        img_tag['class'] = img_tag.get('class', []) + ['img-fluid']
     modified_blog_body = str(soup)
     if form.validate_on_submit():
         if not current_user.is_authenticated:

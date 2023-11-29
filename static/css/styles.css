@@ -601,6 +601,7 @@ progress {
 .img-fluid {
   max-width: 100%;
   height: auto;
+
 }
 
 .img-thumbnail {
@@ -10663,13 +10664,13 @@ blockquote {
     transform: translate3d(0, 100%, 0);
   }
 }
-@media only screen and (max-width: 600px) {
   /* Styles for .avatar img on phones */
   .avatar img {
-    height: 280px;
+    height: auto;
+    max-width: 100%;
     /* Additional styles for phone users */
   }
-}
+
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
