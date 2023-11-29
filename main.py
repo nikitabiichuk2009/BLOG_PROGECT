@@ -33,9 +33,6 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 
-# posts_by_json = requests.get(
-#     url="https://api.jsonstorage.net/v1/json/1c090f18-18fe-4347-a74f-ce4f6d68764d/4122b7cd-2b10-45d0-9521-cdd477daeac9").json()
-
 urls = requests.get(
     url="https://api.npoint.io/f07a1225405aaeaa0037").json()
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("URL")  # Example URI for the default database
@@ -352,7 +349,6 @@ def read_post(index):
     with app.app_context():
         post = db.session.execute(db.select(BlogPost).where(BlogPost.id == index)).scalar()
     requested_post = db.get_or_404(BlogPost, index)
-    # print(post)
     blog_id = post.id
     blog_title = post.title
     blog_body = post.body
@@ -379,7 +375,8 @@ def read_post(index):
         db.session.commit()
         return redirect(url_for('read_post', index=index))
 
-    return render_template("post.html", title=blog_title, body=modified_blog_body, subtitle=blog_subtitle, url=blog_image,
+    return render_template("post.html", title=blog_title, body=modified_blog_body, subtitle=blog_subtitle,
+                           url=blog_image,
                            author=blog_author, date=blog_date, id=blog_id, form=form, post=requested_post, email=email)
 
 
