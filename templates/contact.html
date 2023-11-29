@@ -48,15 +48,30 @@
             name="sentMessage"
           >
             <div class="form-floating">
-                <input class="form-control"  id="name" name="name" type="text" placeholder="Enter your name..." minlength="3" required pattern="^[A-Z][a-zA-Z\s]*$" title="Name must start with a capital letter and consist of alphabets and spaces" />
-                <label for="name">Name</label>
+                <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..."
+                       minlength="10" required />
+                <script>const nameInput = document.getElementById('name');
+
+nameInput.addEventListener('input', function () {
+    const name = this.value.trim();
+
+    // Regex pattern to ensure each word starts with a capital letter (supports Unicode characters)
+    const regex = /^(?:\p{Lu}\p{Ll}*[\s]?)+$/u;
+
+    if (!regex.test(name)) {
+        this.setCustomValidity('Each word should start with a capital letter, can't contain numbers or signs!');
+    } else {
+        this.setCustomValidity('');
+    }
+});</script>
+                <label for="name">Full Name</label>
                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
             </div>
 
 
             <div class="form-floating">
                 <input class="form-control" id="email" name="email" type="email" placeholder="Enter your email..." required pattern="^\S+@\S+\.\S+$" title="Enter a valid email address" />
-                <label for="email">Email address</label>
+                <label for="email">Email Address</label>
                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
             </div>

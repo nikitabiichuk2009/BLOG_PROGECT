@@ -21,6 +21,8 @@ from forms import RegisterForm, LogInForm, Delete, Reset, DeletePost, Send, Code
 import string
 import hashlib
 import os
+from email.mime.text import MIMEText
+from email.header import Header
 
 app = Flask(__name__)
 
@@ -407,6 +409,11 @@ def contact():
         email = request.form['email']
         phone = request.form['phone']
         message = request.form['message']
+        subject = f"New message from {name}"
+        email_content = f"Name: {name}\nEmail: {email}\nPhone Number: {phone}\nMessage: {message}"
+
+        msg = MIMEText(email_content, 'plain', 'utf-8')
+        msg['Subject'] = Header(subject, 'utf-8')
         with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
             testing_email = "niktestpython@gmail.com"
             password = "plohmlccazkdxfro"
@@ -415,8 +422,7 @@ def contact():
             connection.sendmail(
                 from_addr=testing_email,
                 to_addrs="ppnikita52@gmail.com",
-                msg=f"Subject:New message from {name}\n\nName: {name};\nEmail: {email};\nPhone Number: {phone};\n"
-                    f"Message: {message}")
+                msg=msg.as_string())
         return render_template("contact.html", msg_sent=True)
     return render_template("contact.html", msg_sent=False)
 
