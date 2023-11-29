@@ -245,9 +245,20 @@ sub {
 sup {
   top: -0.5em;
 }
+.footer_a{
+  color:  var(--bs-link-color);
+  text-decoration: none;
+}
+.footer_a:hover {
+  color: var(--bs-link-hover-color);
+}
 
+.footer_a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
+}
 a {
-  color: green;
+  color:  green;
   text-decoration: none;
 }
 a:hover {
