@@ -358,7 +358,10 @@ def read_post(index):
     blog_subtitle = post.subtitle
     soup = BeautifulSoup(blog_body, 'html.parser')
     for img_tag in soup.find_all('img'):
-        del img_tag['style']  # Remove style attribute with height and width
+        try:
+            del img_tag['style']  # Remove style attribute with height and width
+        except Exception:
+            pass
         img_tag['class'] = img_tag.get('class', []) + ['img-fluid']
     modified_blog_body = str(soup)
     if form.validate_on_submit():
@@ -499,4 +502,4 @@ def are_you_sure(id, name):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
