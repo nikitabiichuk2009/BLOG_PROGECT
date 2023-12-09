@@ -59,7 +59,7 @@ nameInput.addEventListener('input', function () {
     const regex = /^(?:\p{Lu}\p{Ll}*[\s]?)+$/u;
 
     if (!regex.test(name)) {
-        this.setCustomValidity('Each word should start with a capital letter, can't contain numbers or signs!');
+        this.setCustomValidity('Name must consist of words with each starting with a capital letter! (without digits or signs).');
     } else {
         this.setCustomValidity('');
     }

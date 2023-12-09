@@ -416,7 +416,7 @@ def contact():
         msg['Subject'] = Header(subject, 'utf-8')
         with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
             testing_email = "niktestpython@gmail.com"
-            password = "plohmlccazkdxfro"
+            password = os.environ.get("PASSWORD")
             connection.starttls()
             connection.login(user=testing_email, password=password)
             connection.sendmail(
@@ -508,4 +508,4 @@ def are_you_sure(id, name):
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
