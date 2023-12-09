@@ -218,7 +218,7 @@ def forgot_password():
 
                 with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
                     testing_email = "niktestpython@gmail.com"
-                    password = "plohmlccazkdxfro"
+                    password = os.environ.get("PASSWORD")
                     connection.starttls()
                     connection.login(user=testing_email, password=password)
                     connection.sendmail(
