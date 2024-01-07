@@ -1,131 +1,179 @@
-<!DOCTYPE HTML>
-<!--
-	Identity by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<html>
-<script src="/js/scripts.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Nikita Biichuk</title>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
     <meta name="author" content="" />
-        <title>My Blog</title>
-        <link rel="icon" type="image/x-icon" href="static/static/assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="/static/css/styles.css" rel="stylesheet" />
-<!-- Core theme JS-->
-        <script src="{{ url_for('static', filename='/js/scripts.js') }}"></script>
-        <script src="{{ url_for('static', filename='/js/scripts.js') }}"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <!--[if lte IE 8]>
-    <script src="static/assets/js/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="static/assets/css/main.css"/>
-    <!--[if lte IE 9]>
-    <link rel="stylesheet" href="static/assets/css/ie9.css"/><![endif]-->
-    <!--[if lte IE 8]>
-    <link rel="stylesheet" href="static/assets/css/ie8.css"/><![endif]-->
-    <noscript>
-        <link rel="stylesheet" href="static/assets/css/noscript.css"/>
-    </noscript>
-    <script src="js/scripts.js"></script>
+    <title>Nikita Biichuk</title>
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="static/css/sstyles.css" rel="stylesheet" />
 
 </head>
-<body class="is-loading">
-    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" style="letter-spacing: 0.2em;text-transform: uppercase;  font-size: larger;" href="{{  url_for('home')  }}">Go Back</a>
-            
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">Nikita Biichuk</a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="#about">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="#contact">Contact</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                        href="{{url_for('home')}}">Go back</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
-
-<!-- Wrapper -->
-<div id="wrapper">
-
-    <!-- Main -->
-    <section id="main">
-        <header>
-            <span class="avatar"><img src="static/assets/img/avatar.jpg" alt=""/></span>
-            <h1>Nikita Biichuk</h1>
-            <p>Future Senior Full Stack Developer</p>
-        </header>
-        <!--
-        <hr />
-        <h2>Extra Stuff!</h2>
-        <form method="post" action="#">
-            <div class="field">
-                <input type="text" name="name" id="name" placeholder="Name" />
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image-->
+            <img class="masthead-avatar mb-5" style="border-radius: 50%;" src="static/assets/img/avatar.jpg" alt="Photo of Me" />
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading text-uppercase mb-0">Nikita Biichuk</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
             </div>
-            <div class="field">
-                <input type="email" name="email" id="email" placeholder="Email" />
+            <!-- Masthead Subheading-->
+            <p class="masthead-subheading font-weight-light mb-0">Web Developer - Data Scientist</p>
+        </div>
+    </header>
+
+    <!-- About Section-->
+    <section class="page-section mb-0" id="about">
+        <div class="container">
+            <!-- About Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">About</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
             </div>
-            <div class="field">
-                <div class="select-wrapper">
-                    <select name="department" id="department">
-                        <option value="">Department</option>
-                        <option value="sales">Sales</option>
-                        <option value="tech">Tech Support</option>
-                        <option value="null">/dev/null</option>
-                    </select>
+            <!-- About Section Content-->
+            <div class="row">
+                <div class="col-lg-4 ms-auto">
+                    <p class="lead">Hi there,
+
+                        I'm Nikita Biichuk, a 14-year-old in 9th grade who loves programming. I've gotten pretty good at
+                        Python by finishing a course called <i>"100 Days of Code: The Complete Python Pro Bootcamp"</i>
+                        on
+                        Udemy. Also, I did a course called <i>"Math for Machine Learning"</i> on edX.
+
+                        Apart from coding, I enjoy reading and doing free-style wrestling as hobbies.
+
+                        Right now, I'm learning about Web development and Data science. </p>
+                </div>
+                <div class="col-lg-4 me-auto">
+                    <p class="lead">In summary, I'm Nikita Biichuk — an enthusiastic programmer driven by curiosity and
+                        dedication, aiming to make a meaningful impact in the ever-evolving world of technology!</p>
                 </div>
             </div>
-            <div class="field">
-                <textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
-            </div>
-            <div class="field">
-                <input type="checkbox" id="human" name="human" /><label for="human">I'm a human</label>
-            </div>
-            <div class="field">
-                <label>But are you a robot?</label>
-                <input type="radio" id="robot_yes" name="robot" /><label for="robot_yes">Yes</label>
-                <input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label>
-            </div>
-            <ul class="actions">
-                <li><a href="#" class="button">Get Started</a></li>
-            </ul>
-        </form>
-        <hr />
-        -->
-        <footer>
-            <ul class="icons">
-                <li><a href="https://twitter.com/niktestpython" class="fa-twitter">Twitter</a></li>
-                <li><a href="https://www.instagram.com/nikitabiichuk1/?next=%2F" class="fa-instagram">Instagram</a></li>
-                <li><a href="https://www.facebook.com/profile.php?id=61552579117635" class="fa-facebook">Facebook</a>
-                </li>
-            </ul>
-        </footer>
-    </section>
 
-    <!-- Footer -->
-    <footer id="footer">
-        <ul class="copyright">
-            <li style="font-size: 24px;">&copy; Nikita Biichuk</li>
-            <li style="font-size: 24px;">About Me</li>
-        </ul>
+    </section>
+    <!-- Contact Section-->
+    <section class="page-section bg-primary text-white mb-0" id="contact">
+        <div class="container">
+            <!-- Contact Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase mb-0">Contact Me</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <div class="contact-box"><a href="{{url_for('contact')}}"><button class="btn btn-secondary btn-xl text-uppercase contact" id="submitButton" type="submit">Click to contact</button></a></div>
+            <style>
+                .contact-box{
+                    display: flex;
+                    justify-content: center;
+                }
+                .contact{
+                    border: none;
+                    border-radius: 0%;
+                    font-weight: 900;
+                    font-size: 25px;
+
+                }
+                .contact:hover {
+                    background-color: #332941;
+                    }
+                
+            </style>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Location</h4>
+                    <p class="lead mb-0">
+                        Ukraine, Boiarka
+                        <br />
+                        Gogolya 50 - A
+                    </p>
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Around the Web</h4>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/profile.php?id=61552579117635"><i
+                            class="fab fa-fw fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/niktestpython"><i class="fab fa-fw fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/nikitabiichuk2009"><i class="fab fa-fw fa-github"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/nikitabiichuk1/"><i
+                            class="fab fa-fw fa-instagram"></i></a>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="text-uppercase mb-4">My Phone Number</h4>
+                    <p class="lead mb-0">
+                        +38 050 609 6474
+                    </p </div>
+                </div>
+            </div>
     </footer>
 
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+
+<div  class="copyright py-4 text-center text-white fst-italic">
+    <div class="container" style="font-size: 20px;">Copyright &copy; Nikita's Blog Website <span id="currentYear"></span></div>
+    <script>
+        const year = new Date().getFullYear();
+        document.getElementById('currentYear').textContent = year;
+    </script>
 </div>
-
-<!-- Scripts -->
-<!--[if lte IE 8]>
-<script src="static/assets/js/respond.min.js"></script><![endif]-->
-<script>
-				if ('addEventListener' in window) {
-					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
-					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-				}
-
-</script>
-
-
 </body>
+
 </html>

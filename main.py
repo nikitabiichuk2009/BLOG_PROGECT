@@ -508,4 +508,4 @@ def are_you_sure(id, name):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
