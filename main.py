@@ -165,11 +165,16 @@ def home():
     email = os.environ.get("EMAIL")
 
     with app.app_context():
-        result = db.session.execute(db.select(BlogPost).order_by(BlogPost.title))
+        # Fetch all posts ordered by title, with posts having a specific title appearing first
+        result = db.session.execute(db.select(BlogPost).order_by(BlogPost.title != "PORTFOLIO FOR INTERNSHIP"),
+                                    BlogPost.title)
+
         posts = result.scalars().all()
 
     url = random.choice(urls)
     return render_template("index.html", all_posts=posts, url=url, email=email)
+
+
 
 
 @app.route('/register', methods=["GET", "POST"])
