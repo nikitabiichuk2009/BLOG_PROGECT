@@ -161,7 +161,6 @@ class DeleteForm(FlaskForm):
 
 
 @app.route('/')
-
 def home():
     email = os.environ.get("EMAIL")
 
