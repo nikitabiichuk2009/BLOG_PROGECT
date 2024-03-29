@@ -161,14 +161,12 @@ class DeleteForm(FlaskForm):
 
 
 @app.route('/')
+
 def home():
     email = os.environ.get("EMAIL")
 
     with app.app_context():
-        # Fetch all posts ordered by title, with posts having a specific title appearing first
-        result = db.session.execute(db.select(BlogPost).order_by(BlogPost.title != "PORTFOLIO FOR INTERNSHIP"),
-                                    BlogPost.title)
-
+        result = db.session.execute(db.select(BlogPost).order_by(BlogPost.title))
         posts = result.scalars().all()
 
     url = random.choice(urls)
