@@ -92,6 +92,7 @@
 }
 
 body {
+background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
